@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * Author: Usman Irale
+ * Email: superirale@gmail.com
+ * Repo: http://github.com/superirale/Logger
+ */
 class Logger{
 	
 	private $logFile;
@@ -30,6 +34,11 @@ class Logger{
 		$this->writeLog("Error", $tag, $message);
 	}
 
+	public function warning($tag, $message)
+	{
+		$this->writeLog("Warning", $tag, $message);
+	}
+
 
 	public function writeLog($status, $tag, $message)
 	{
@@ -44,10 +53,4 @@ class Logger{
 	 	return $dt->format('Y-m-d H:i:s');
 	}
 
-	// public function __destruct()
- //    {
- //        if($this->logFile) {
- //            fclose($this->logFile);
- //        }
- //    }
 }
