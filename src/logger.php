@@ -35,7 +35,7 @@ class Logger{
 	{
 		$date = $this->getCurrentTime();
         $msg = "$date: [$tag][$status] - $message" . PHP_EOL;
-        file_put_contents($this->log_file, $msg, FILE_APPEND);
+        file_put_contents($this->logFile, $msg, FILE_APPEND);
 	}
 
 	private function getCurrentTime()
@@ -44,10 +44,10 @@ class Logger{
 	 	return $dt->format('Y-m-d H:i:s');
 	}
 
-	public function __destruct()
-    {
-        if ($this->logFile) {
-            fclose($this->logFile);
-        }
-    }
+	// public function __destruct()
+ //    {
+ //        if($this->logFile) {
+ //            fclose($this->logFile);
+ //        }
+ //    }
 }
