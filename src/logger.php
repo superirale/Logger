@@ -53,4 +53,9 @@ class Logger{
 	 	return $dt->format('Y-m-d H:i:s');
 	}
 
+	public function getLogFile()
+	{
+		return $this->logFile;
+	}
+
 }
