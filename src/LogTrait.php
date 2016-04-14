@@ -1,11 +1,13 @@
 <?php 
 trait LogTrait{
 
+	private $logFile;
+	
 	public function writeLog($status, $tag, $message)
 	{
 		$date = $this->getCurrentTime();
         $msg = "$date: [$tag][$status] - $message" . PHP_EOL;
-        file_put_contents($this->getLogFile, $msg, FILE_APPEND);
+        file_put_contents($this->logFile, $msg, FILE_APPEND);
 	}
 	
 	private function getCurrentTime()

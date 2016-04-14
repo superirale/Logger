@@ -6,7 +6,8 @@
  */
 class Logger{
 	
-	private $logFile;
+	use LogTrait;
+	// private $logFile;
 
 	function __construct($file = "/var/log/app_error.log")
 	{
@@ -37,25 +38,6 @@ class Logger{
 	public function warning($tag, $message)
 	{
 		$this->writeLog("Warning", $tag, $message);
-	}
-
-
-	public function writeLog($status, $tag, $message)
-	{
-		$date = $this->getCurrentTime();
-        $msg = "$date: [$tag][$status] - $message" . PHP_EOL;
-        file_put_contents($this->logFile, $msg, FILE_APPEND);
-	}
-
-	private function getCurrentTime()
-	{
-		$dt = new DateTime();
-	 	return $dt->format('Y-m-d H:i:s');
-	}
-
-	public function getLogFile()
-	{
-		return $this->logFile;
 	}
 
 }
