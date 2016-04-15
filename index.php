@@ -8,4 +8,4 @@ require 'src/Logger.php';
 
 $log = new Logger('/var/www/logger/applog.log');
 $log->debug("test", "this is a test");
-$log->LogToConsole("This is a test o", 'info');
+$log->LogToConsole("This is a test o", 'warn');

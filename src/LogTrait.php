@@ -39,13 +39,13 @@ trait LogTrait{
 				break;
 		}
 
-		$output = "<script>console.$method('PHP: ".$message."');</script>";
+		$output = "<script>console.$method('".self::getCurrentTime()." - [PHP]: ".$message."');</script>";
 		echo $output;
 	}
 	
 	private function getCurrentTime()
 	{
 		$dt = new DateTime();
-	 	return $dt->format('Y-m-d H:i:s');
+	 	return $dt->format('M-d-Y H:i:s');
 	}
 }
