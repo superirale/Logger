@@ -12,32 +12,35 @@ trait LogTrait{
 
 	public function consoleLog($message, $type)
 	{
-		$output = '';
+		$message = is_array($message)? json_encode($message): $message;
+	
 
+		$output = '';
+		
 		switch ($type) {
 			case 'log':
-				$output = "console.log($message)";
+				$method = "log";
 				break;
 			case 'info':
-				$output = "console.info($message)";
+				$method = "info";
 				break;
 			case 'debug':
-				$output = "console.debug($message)";
+				$method = "debug";
 				break;
 			case 'error':
-				$output = "console.error($message)";
+				$method = "error";
 				break;
 			case 'warn':
-				$output = "console.warn($message)";
+				$method = "warn";
 				break;
 			
 			default:
-				$output = "console.log($message)";
+				$method = "log";
 				break;
 		}
 
-		$output = "<script>".$output."</script>";
-		return $output;
+		$output = "<script>console.$method('PHP: ".$message."');</script>";
+		echo $output;
 	}
 	
 	private function getCurrentTime()

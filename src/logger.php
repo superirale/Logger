@@ -7,7 +7,6 @@
 class Logger{
 	
 	use LogTrait;
-	// private $logFile;
 
 	function __construct($file = "/var/log/app_error.log")
 	{
@@ -38,6 +37,11 @@ class Logger{
 	public function warning($tag, $message)
 	{
 		$this->writeLog("Warning", $tag, $message);
+	}
+
+	public function LogToConsole($message, $type)
+	{
+		$this->consoleLog($message, $type);
 	}
 
 }
